@@ -14,10 +14,10 @@ public class Pizza {
         this.isVeg = isVeg;
         // your code goes here
         if(isVeg){
-        price=300;	
+        price+=300;	
         bill="Base Price Of The Pizza: 300\n";
         }else {
-        	price=400;
+        	price+=400;
         	 bill="Base Price Of The Pizza: 400\n";
         }
        
@@ -29,10 +29,19 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
+    	if(!cheese) {
+    		price+=80;
+    	}
     	cheese=true;
     }
 
     public void addExtraToppings(){
+    	if(!topping&&isVeg){
+    		price+=70;
+    	}
+    	if(!topping&&!isVeg) {
+    		price+=120;
+    	}
     	topping=true;
     }
 
@@ -44,16 +53,13 @@ public class Pizza {
     public String getBill(){
     	if(billgenerated) {
     	if(cheese) {
-    		price+=80;
         	bill+="Extra Cheese Added: 80\n";
     	}
     	if(topping) {
     		if(isVeg){
-       		 price+=70;
        		 bill+="Extra Toppings Added: 70\n";
        		}
        	 else {
-       		 price+=120;
        		 bill+="Extra Toppings For Non-veg Pizza: 120\n";
        	 }
     	}
