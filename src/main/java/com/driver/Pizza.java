@@ -47,6 +47,9 @@ public class Pizza {
 
     public void addTakeaway(){
         // your code goes here
+    	if(!bag) {
+    		price+=20;
+    	}
     	bag=true;
     }
 
@@ -64,7 +67,6 @@ public class Pizza {
        	 }
     	}
     	if(bag) {
-    		price+=20;
     	bill+="Paperbag Added: 20\n";
     	}
         // your code goes here
@@ -72,8 +74,8 @@ public class Pizza {
     	billgenerated=false;
         return this.bill;
     }
-    	else{
-    		return "";
-    	}
+    
+    		return this.bill;
+    	
     }
 }
